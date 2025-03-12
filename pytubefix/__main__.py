@@ -390,17 +390,17 @@ class YouTube:
                 else:
                     raise exceptions.VideoUnavailable(video_id=self.video_id)
 
-            elif status == 'LOGIN_REQUIRED':
-                if reason == (
-                        'Sign in to confirm your age'
-                ):
-                    raise exceptions.AgeRestrictedError(video_id=self.video_id)
-                elif reason == (
-                        'Sign in to confirm you’re not a bot'
-                ):
-                    raise exceptions.BotDetection(video_id=self.video_id)
-                else:
-                    raise exceptions.LoginRequired(video_id=self.video_id, reason=reason)
+            # elif status == 'LOGIN_REQUIRED':
+            #     if reason == (
+            #             'Sign in to confirm your age'
+            #     ):
+            #         raise exceptions.AgeRestrictedError(video_id=self.video_id)
+            #     elif reason == (
+            #             'Sign in to confirm you’re not a bot'
+            #     ):
+            #         raise exceptions.BotDetection(video_id=self.video_id)
+            #     else:
+            #         raise exceptions.LoginRequired(video_id=self.video_id, reason=reason)
 
             elif status == 'AGE_CHECK_REQUIRED':
                 if self.use_oauth:
